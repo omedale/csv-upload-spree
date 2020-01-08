@@ -1,0 +1,17 @@
+<%= render partial: 'spree/admin/products/error/bulk_error_messages.html', locals: { target: @product } %>
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:products), spree.admin_products_url %> /
+  <%= Spree.t(:bulk_product_upload) %>
+<% end %>
+
+<%= form_tag '/admin/product/bulk_upload', multipart: true do |f| %>
+    <fieldset data-hook="new_product">
+     <div class="form-group">
+        <label> <%= Spree.t(:select_file) %></label> 
+        <span class="text-danger">(Note: product with duplicate SKU will not be saved)</span>
+        <span class="required">*</span>
+        <%= file_field_tag 'file', class: 'form-control', accept: 'text/csv', required: :required %>
+      </div>
+      <%= render partial: 'spree/admin/shared/new_resource_links' %>
+    </fieldset>
+<% end %>

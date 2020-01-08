@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sidekiq'
 
 gem 'spree', '~> 3.4.0'
 gem 'spree_auth_devise', '~> 3.3'
